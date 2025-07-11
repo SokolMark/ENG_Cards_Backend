@@ -1,5 +1,6 @@
+DROP TABLE IF EXISTS Word_set;
 DROP TABLE IF EXISTS Word;
-DROP TABLE IF EXISTS Set;
+DROP TABLE IF EXISTS Answer;
 
 CREATE TABLE word_set (
                           set_id SERIAL PRIMARY KEY,
@@ -12,4 +13,11 @@ CREATE TABLE word (
                       ua_word VARCHAR(100) NOT NULL,
                       set_id INTEGER NOT NULL,
                       FOREIGN KEY (set_id) REFERENCES word_set(set_id) ON DELETE CASCADE
+);
+
+CREATE TABLE Answer(
+                       answer_id SERIAL PRIMARY KEY,
+                       answer INTEGER NOT NULL,
+                       word_id INTEGER NOT NULL,
+                       FOREIGN KEY (word_id) REFERENCES Word(word_id) ON DELETE CASCADE
 );

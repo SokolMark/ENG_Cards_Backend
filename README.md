@@ -1,4 +1,5 @@
 flashcards for learning English words 
 
 --version 1
-<img width="796" height="540" alt="image" src="https://github.com/user-attachments/assets/7b5527a9-231c-4992-8852-ce516ddab13f" />
+<img width="796" height="539" alt="image" src="https://github.com/user-attachments/assets/54ddbbf9-bfae-426f-910c-4bf2148f41e5" />
+

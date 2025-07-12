@@ -22,4 +22,8 @@ public class CardService {
     public List<WordSet> findAllSets() {
         return setRepo.findAll();
     }
+
+    public WordSet getSetByName(String name) {
+        return setRepo.getSetByName(name);
+    }
 }

@@ -26,4 +26,8 @@ public class CardService {
     public WordSet getSetByName(String name) {
         return setRepo.getSetByName(name);
     }
+
+    public Word getRandomWordInSet(String name) {
+        return wordRepo.getRandomWordInSet(name);
+    }
 }

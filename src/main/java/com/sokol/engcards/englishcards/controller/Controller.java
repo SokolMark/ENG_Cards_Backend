@@ -13,7 +13,7 @@ import java.util.List;
 
 @AllArgsConstructor
 @RestController
-@RequestMapping("/Cards")
+@RequestMapping("/cards")
 public class Controller {
     private final CardService cardService;
 
@@ -22,7 +22,7 @@ public class Controller {
         return cardService.findAllWords();
     }
 
-    @GetMapping("/Sets")
+    @GetMapping("/sets")
     public List<WordSet> getSets() {
         return cardService.findAllSets();
     }
@@ -31,4 +31,10 @@ public class Controller {
     public WordSet getSet(@RequestParam String name) {
         return cardService.getSetByName(name);
     }
+
+    @GetMapping("/word")
+    public Word getWord(@RequestParam String name) {
+        return cardService.getRandomWordInSet(name);
+    }
+
 }

@@ -15,11 +15,13 @@ public class CardService {
     private WordRepo wordRepo;
     private SetRepo setRepo;
 
-    public List<Word> findAllWords() {
-        return wordRepo.findAll();
-    }
+/*    public List<Word> findAllWords() {
+      return wordRepo.findAll();
+*/
 
     public List<WordSet> findAllSets() {
         return setRepo.findAll();
     }
+
+
 }

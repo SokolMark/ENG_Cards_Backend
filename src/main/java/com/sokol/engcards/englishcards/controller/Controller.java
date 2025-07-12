@@ -1,6 +1,5 @@
 package com.sokol.engcards.englishcards.controller;
 
-import com.sokol.engcards.englishcards.entity.Word;
 import com.sokol.engcards.englishcards.entity.WordSet;
 import com.sokol.engcards.englishcards.service.CardService;
 import lombok.AllArgsConstructor;
@@ -12,16 +11,17 @@ import java.util.List;
 
 @AllArgsConstructor
 @RestController
-@RequestMapping("/Cards")
+@RequestMapping("/cards")
 public class Controller {
     private final CardService cardService;
 
+/*
     @GetMapping("/words")
     public List<Word> getWords() {
-        return cardService.findAllWords();
-    }
+    return cardService.findAllWords();}
+*/
 
-    @GetMapping("/Sets")
+    @GetMapping("/sets")
     public List<WordSet> getSets() {
         return cardService.findAllSets();
     }

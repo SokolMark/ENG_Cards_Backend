@@ -31,5 +31,4 @@ public class Word {
 
     @OneToOne(mappedBy = "word", cascade = CascadeType.ALL, orphanRemoval = true)
     private Answer answer;
-
 }

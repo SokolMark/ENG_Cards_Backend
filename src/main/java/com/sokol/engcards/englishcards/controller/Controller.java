@@ -1,13 +1,11 @@
 package com.sokol.engcards.englishcards.controller;
 
+import com.sokol.engcards.englishcards.dto.AnswerDTO;
 import com.sokol.engcards.englishcards.entity.Word;
 import com.sokol.engcards.englishcards.entity.WordSet;
 import com.sokol.engcards.englishcards.service.CardService;
 import lombok.AllArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -37,4 +35,18 @@ public class Controller {
         return cardService.getRandomWordInSet(name);
     }
 
+    @PostMapping("/saveAnswer")
+    public void saveAnswer(@RequestParam Integer wordId, @RequestParam Integer answer) {
+        cardService.saveAnswer(wordId, answer);
+    }
+
+    @GetMapping("/correctAnswers")
+    public List<AnswerDTO> getAnswer(@RequestParam String name) {
+        return cardService.getCorrectAnswer(name);
+    }
+
+    @GetMapping("/wrongAnswers")
+    public List<AnswerDTO> getWrongAnswers(@RequestParam String name) {
+        return cardService.getInCorrectAnswer(name);
+    }
 }

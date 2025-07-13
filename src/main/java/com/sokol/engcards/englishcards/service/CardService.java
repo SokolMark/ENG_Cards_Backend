@@ -65,4 +65,10 @@ public class CardService {
                         a.getWord().getUaWord()))
                 .toList();
     }
+
+    public void addSet(String name){
+        WordSet wordSet = new WordSet();
+        wordSet.setName(name);
+        setRepo.save(wordSet);
+    }
 }

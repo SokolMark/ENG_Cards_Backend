@@ -47,23 +47,13 @@ public class CardService {
     public List<AnswerDTO> getCorrectAnswer(String name) {
         List<Answer> answers = answerRepo.getCorrectAnswers(name);
 
-        return answers.stream()
-                .map(a -> new AnswerDTO(
-                        a.getAnswer(),
-                        a.getWord().getEngWord(),
-                        a.getWord().getUaWord()))
-                .toList();
+        return answers.stream().map(a -> new AnswerDTO(a.getAnswer(), a.getWord().getEngWord(), a.getWord().getUaWord())).toList();
     }
 
     public List<AnswerDTO> getInCorrectAnswer(String name) {
         List<Answer> answers = answerRepo.getInCorrectAnswers(name);
 
-        return answers.stream()
-                .map(a -> new AnswerDTO(
-                        a.getAnswer(),
-                        a.getWord().getEngWord(),
-                        a.getWord().getUaWord()))
-                .toList();
+        return answers.stream().map(a -> new AnswerDTO(a.getAnswer(), a.getWord().getEngWord(), a.getWord().getUaWord())).toList();
     }
 
     public void addSet(String name) {
@@ -83,6 +73,14 @@ public class CardService {
         wordRepo.save(word);
     }
 
+    public boolean checkTranslation(Integer wordId, String userTranslation) {
+        Word word = wordRepo.findById(wordId).orElseThrow();
+
+        boolean isCorrect = word.getUaWord().equalsIgnoreCase(userTranslation.trim());
+        saveAnswer(wordId, isCorrect ? 1 : 0);
+        return isCorrect;
+    }
+
     public void deleteSet(String name) {
         WordSet set = setRepo.getSetByName(name);
         setRepo.delete(set);
@@ -90,5 +88,13 @@ public class CardService {
 
     public void deleteWord(Integer id) {
         wordRepo.deleteById(id);
+    }
+
+    public void clearAnswers(String name) {
+        answerRepo.deleteBySetName(name);
+    }
+
+    public void clearAllAnswers() {
+        answerRepo.deleteAll();
     }
 }

@@ -7,7 +7,4 @@ import org.springframework.data.jpa.repository.Query;
 public interface SetRepo extends JpaRepository<WordSet, Integer> {
     @Query(value = "SELECT * FROM word_set WHERE name = ?", nativeQuery = true)
     WordSet getSetByName(String name);
-
-    @Query(value = "INSERT INTO word_set (name) VALUES(?)", nativeQuery = true)
-    WordSet addSet();
 }

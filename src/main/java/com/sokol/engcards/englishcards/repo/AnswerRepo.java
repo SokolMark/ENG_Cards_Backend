@@ -3,6 +3,7 @@ package com.sokol.engcards.englishcards.repo;
 import com.sokol.engcards.englishcards.entity.Answer;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
@@ -22,4 +23,7 @@ public interface AnswerRepo extends CrudRepository<Answer, Integer> {
                    "WHERE s.name = ? AND a.answer = 0",
             nativeQuery = true)
     List<Answer> getInCorrectAnswers(String setName);
+
+    @Query("DELETE FROM Answer a WHERE a.word.set.name = :setName")
+    void deleteBySetName(@Param("setName") String setName);
 }

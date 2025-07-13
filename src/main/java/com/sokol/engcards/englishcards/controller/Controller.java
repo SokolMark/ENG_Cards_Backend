@@ -56,10 +56,13 @@ public class Controller {
     }
 
     @PostMapping("/addWord")
-    public void addWord(@RequestParam String name,
-                        @RequestParam String engWord,
-                        @RequestParam String uaWord) {
+    public void addWord(@RequestParam String name, @RequestParam String engWord, @RequestParam String uaWord) {
         cardService.addWord(name, engWord, uaWord);
+    }
+
+    @PostMapping("/checkTranslation")
+    public boolean checkTranslation(@RequestParam Integer wordId, String userTranslation) {
+        return cardService.checkTranslation(wordId, userTranslation);
     }
 
     @DeleteMapping("/deleteSet")
@@ -72,4 +75,13 @@ public class Controller {
         cardService.deleteWord(id);
     }
 
+    @DeleteMapping("/clearAnswers")
+    public void clearAnswers(@RequestParam String name) {
+        cardService.clearAnswers(name);
+    }
+
+    @DeleteMapping("/clearAllAnswers")
+    public void clearAllAnswers() {
+        cardService.clearAllAnswers();
+    }
 }

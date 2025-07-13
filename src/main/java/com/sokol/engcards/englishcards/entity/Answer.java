@@ -1,5 +1,7 @@
 package com.sokol.engcards.englishcards.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -22,6 +24,7 @@ public class Answer {
 
     @OneToOne
     @JoinColumn(name = "word_id")
+    @JsonIgnore
     private Word word;
 }
 

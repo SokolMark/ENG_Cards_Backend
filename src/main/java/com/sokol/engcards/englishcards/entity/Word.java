@@ -25,7 +25,7 @@ public class Word {
     private String uaWord;
 
     @ManyToOne
-    @JoinColumn(name = "set_id")
+    @JoinColumn(name = "set_id", nullable = false)
     @JsonIgnore
     private WordSet set;
 

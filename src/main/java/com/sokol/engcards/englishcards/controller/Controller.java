@@ -62,4 +62,14 @@ public class Controller {
         cardService.addWord(name, engWord, uaWord);
     }
 
+    @DeleteMapping("/deleteSet")
+    public void deleteSet(@RequestParam String name) {
+        cardService.deleteSet(name);
+    }
+
+    @DeleteMapping("/deleteWord")
+    public void deleteWord(@RequestParam Integer id) {
+        cardService.deleteWord(id);
+    }
+
 }

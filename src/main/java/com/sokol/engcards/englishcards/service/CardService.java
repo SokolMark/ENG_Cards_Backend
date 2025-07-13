@@ -66,9 +66,20 @@ public class CardService {
                 .toList();
     }
 
-    public void addSet(String name){
+    public void addSet(String name) {
         WordSet wordSet = new WordSet();
         wordSet.setName(name);
         setRepo.save(wordSet);
+    }
+
+    public void addWord(String name, String engWord, String uaWord) {
+        WordSet set = setRepo.getSetByName(name);
+        Word word = new Word();
+
+        word.setEngWord(engWord);
+        word.setUaWord(uaWord);
+        word.setSet(set);
+
+        wordRepo.save(word);
     }
 }

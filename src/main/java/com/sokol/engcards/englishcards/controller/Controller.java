@@ -55,4 +55,11 @@ public class Controller {
         cardService.addSet(name);
     }
 
+    @PostMapping("/addWord")
+    public void addWord(@RequestParam String name,
+                        @RequestParam String engWord,
+                        @RequestParam String uaWord) {
+        cardService.addWord(name, engWord, uaWord);
+    }
+
 }

@@ -49,4 +49,10 @@ public class Controller {
     public List<AnswerDTO> getWrongAnswers(@RequestParam String name) {
         return cardService.getInCorrectAnswer(name);
     }
+
+    @PostMapping("/addSet")
+    public void addSet(@RequestParam String name) {
+        cardService.addSet(name);
+    }
+
 }

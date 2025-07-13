@@ -23,8 +23,7 @@ public class WordSet {
     private Long setId;
     private String name;
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "set_id")
+    @OneToMany(mappedBy = "set", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Word> words = new ArrayList<>();
 
 }

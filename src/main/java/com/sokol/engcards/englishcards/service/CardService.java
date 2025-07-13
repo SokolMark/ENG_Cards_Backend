@@ -82,4 +82,13 @@ public class CardService {
 
         wordRepo.save(word);
     }
+
+    public void deleteSet(String name) {
+        WordSet set = setRepo.getSetByName(name);
+        setRepo.delete(set);
+    }
+
+    public void deleteWord(Integer id) {
+        wordRepo.deleteById(id);
+    }
 }
